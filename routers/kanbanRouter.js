@@ -14,6 +14,19 @@ router.get("/", (req, res, next) => {
     })
 });
 
+router.get("/getall/:id", (req, res, next) => {
+    const { id } = req.params;
+    data.getAll(id).then(board => {
+        res.status(200).json(board);
+    }).catch(error => {
+        next({
+            statusCode: 500,
+            errorMessage: 'Error retrieving data from KanbanBoards',
+            error,
+        })
+    })
+});
+
 router.post("/", (req, res, next) => {
     const newBoard = req.body;
     if (!newBoard.Name) {

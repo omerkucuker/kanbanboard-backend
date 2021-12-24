@@ -11,6 +11,7 @@ module.exports = {
     findCardById,
     addCard,
     deleteCard,
+    getAll,
 };  
 
 function findBoard(){
@@ -57,4 +58,12 @@ function addCard(newCard){
 
 function deleteCard(id){
     return db("Cards").del().where({id});
+}
+
+function getAll(id){
+   return db('TaskLists')
+  .join('KanbanBoards', 'TaskLists.Board_Id', 'KanbanBoards.id')
+  .join('Cards', 'TaskLists.id', 'Cards.TaskList_Id')
+  .select('TaskLists.Name', 'Cards.CardDescription')
+  .where({'KanbanBoards.id':id});
 }

@@ -1,4 +1,4 @@
-
+/*
 exports.seed = function(knex) {
   // Deletes ALL existing entries
   return knex('KanbanBoards').del()
@@ -10,4 +10,4 @@ exports.seed = function(knex) {
         {id: 3, Name: 'KanbanBoard3'}
       ]);
     });
-};
+};*/

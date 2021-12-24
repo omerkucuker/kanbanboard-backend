@@ -1,7 +1,6 @@
 const router = require("express").Router();
 
 const data = require('../data/data-model');
-const { route } = require("./kanbanRouter");
 
 router.get("/", (req, res, next) => {
     data.findCard().then(task => {
@@ -65,7 +64,7 @@ router.delete("/:id", (req, res, next) => {
         .then((deletedCard) => {
             data.deleteCard(id).then(deleted => {
                 if (deleted) {
-                    res.status(204).end();
+                   return res.status(204).end();
                 }
                 next({
                     statusCode: 400,

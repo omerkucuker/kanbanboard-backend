@@ -1,4 +1,4 @@
-
+/*
 exports.seed = function(knex) {
   // Deletes ALL existing entries
   return knex('TaskLists').del()
@@ -11,3 +11,4 @@ exports.seed = function(knex) {
       ]);
     });
 };
+*/
