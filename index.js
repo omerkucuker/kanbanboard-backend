@@ -4,8 +4,10 @@ const tasklistRouter = require("./routers/tasklistRouter");
 const cardRouter = require("./routers/cardRouter");
 const logger = require("./middlewares/logger");
 const errorHandling = require("./middlewares/errorHandling");
+var cors = require('cors')
 
 const server = express();
+server.use(cors());
 server.use(express.json());
 server.use(logger);
 
@@ -17,6 +19,7 @@ server.use("/cards", cardRouter);
 server.get("/", (req, res) => {
   res.send("Express'ten merhaba");
 });
+
 
 server.use(errorHandling);
 
