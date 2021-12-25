@@ -64,6 +64,6 @@ function getAll(id){
    return db('TaskLists')
   .join('KanbanBoards', 'TaskLists.Board_Id', 'KanbanBoards.id')
   .join('Cards', 'TaskLists.id', 'Cards.TaskList_Id')
-  .select('TaskLists.Name', 'Cards.CardDescription')
+  .select('TaskLists.Name', 'Cards.CardDescription','Cards.id')
   .where({'KanbanBoards.id':id});
 }
