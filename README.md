@@ -1,12 +1,10 @@
 
 # Kanban Board Backend
 
-Kanban Board Backend uygulamasında PostgreSql veritabanı, ORM aracı olarak knex kütüphanesi kullanılmıştır. Pg kütüphanesiyle veribanındaki bağlantı sağlanmıştır.
-Veritabına yapısında board, task listesi ve liste elemanlarının içindeki kart elemanları olmak üzere üç farklı tablo tutulmaktadır.
-Board'ın listeleri, listelerin de kartları bulunmaktadır. Aralarındaki ilişki one-to-many dir.
+In the Kanban Board Backend application, the PostgreSql database was used, and the knex library was used as the ORM tool. The connection in the database is provided with the pg library. Three different tables are kept in the database structure: the board, the task list and the card elements in the list elements. Board has lists and lists have cards. The relationship between them is one-to-many.
 
 
-## Kullanılan Teknolojiler
+## Used technologies
 
 **Server:** Node, Express
 
@@ -14,38 +12,38 @@ Board'ın listeleri, listelerin de kartları bulunmaktadır. Aralarındaki iliş
 
 
   
-## API Kullanımı
+## API Usage
 
-#### Board getir
+#### Get Board
 
 ```http
   GET /boards/getall/${id}
 ```
 
-| Parametre | Tip     | Açıklama                |
+| Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `id` | `integer` | Board id sine göre ilgili id ye ait liste ve kartları öğeleri getir |
+| `id` | `integer` | According to the board id, fetch the list and cards belonging to the related id |
 
-#### Kart Ekle
+#### Add Card
 
 ```http
   POST /cards
 ```
 
-| Parametre | Tip     | Açıklama                       |
+| Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `CardDescriptions`      | `string` | Listeye eklenecek kart elemanı |
-| `TasklList_Id`      | `integer` | İlişkilendirelecek listenin id si. |
+| `CardDescriptions`      | `string` | Card element to be added to the list |
+| `TasklList_Id`      | `integer` | The id of the list to be associated. |
 
 
-#### Kart Sil
+#### Delete Card
 
 ```http
   DELETE /cards/${id}
 ```
 
-| Parametre | Tip     | Açıklama                |
+| Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `id` | `integer` | Parametre olarak verilen id ye ait kartı veritabanından siler |
+| `id` | `integer` | Deletes the card of the id given as a parameter from the database. |
 
   
